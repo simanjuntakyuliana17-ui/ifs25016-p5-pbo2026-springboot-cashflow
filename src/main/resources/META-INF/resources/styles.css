@@ -1,0 +1,61 @@
+/* ===== Kursor interaktif ===== */
+vaadin-button, vaadin-menu-bar-button, vaadin-menu-bar-item, vaadin-context-menu-item,
+vaadin-tab, vaadin-drawer-toggle, vaadin-upload-button, vaadin-grid-sorter, vaadin-avatar,
+a[router-link], .nav-link, .proof-thumb { cursor: pointer; }
+vaadin-button[disabled], vaadin-menu-bar-button[disabled], vaadin-tab[disabled],
+vaadin-menu-bar-item[disabled], vaadin-context-menu-item[disabled] { cursor: not-allowed; }
+
+/* ===== Indikator loading global (glowing bar) ===== */
+.v-loading-indicator {
+  height: 4px;
+  background: linear-gradient(90deg, #2563EB, #60A5FA, #2563EB);
+  box-shadow: 0 0 10px #60A5FA, 0 0 20px #2563EB;
+  animation: cf-glow 1.2s ease-in-out infinite;
+}
+@keyframes cf-glow { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+
+/* ===== Tombol dengan kontras terjaga (WCAG AA) ===== */
+.btn-income  { --vaadin-button-background: #166534; --vaadin-button-text-color: #fff; background: #166534; color: #fff; }
+.btn-expense { --vaadin-button-background: #B91C1C; --vaadin-button-text-color: #fff; background: #B91C1C; color: #fff; }
+.btn-accent  { --vaadin-button-background: #1D4ED8; --vaadin-button-text-color: #fff; background: #1D4ED8; color: #fff; }
+.btn-secondary { --vaadin-button-background: #E0E7FF; --vaadin-button-text-color: #1E3A8A; background: #E0E7FF; color: #1E3A8A; }
+.btn-text { --vaadin-button-text-color: #1E3A8A; color: #1E3A8A; background: transparent; }
+.btn-danger-text { --vaadin-button-text-color: #B91C1C; color: #B91C1C; background: transparent; }
+vaadin-button.btn-income, vaadin-button.btn-expense, vaadin-button.btn-accent, vaadin-button.btn-secondary { min-height: 2.75rem; }
+
+/* ===== Dialog modal: header biru primer, footer abu-abu, tombol di kanan ===== */
+vaadin-dialog-overlay.app-dialog::part(header) { background: #2563EB; color: #fff; }
+vaadin-dialog-overlay.app-dialog::part(title) { color: #fff; }
+vaadin-dialog-overlay.app-dialog [theme~="badge"] { background: #fff; color: #1E3A8A; margin-left: auto; }
+vaadin-dialog-overlay.app-dialog::part(footer) {
+  background: #F3F4F6; border-top: 1px solid #D1D5DB; justify-content: flex-end; gap: .5rem;
+}
+.preview-box { max-height: 65vh; overflow: auto; background: #F3F4F6; border-radius: 8px; }
+
+/* ===== Halaman & kartu ===== */
+body { background: #F4F7FB; }
+.page-card { background: #fff; border: 1px solid #DCE3EE; border-radius: 14px; padding: 1.25rem;
+  display: flex; flex-direction: column; gap: .75rem; }
+.auth-page { background: linear-gradient(160deg, #12294D 0%, #1D4ED8 100%); min-height: 100vh; }
+.auth-card { width: min(420px, 92vw); box-shadow: 0 20px 45px rgba(0,0,0,.25); }
+.auth-card h1 { margin: 0; color: #12294D; }
+.form-card { max-width: 520px; }
+.app-title { font-size: 1.25rem; margin: 0 .5rem; color: #12294D; }
+.grow { flex: 1; }
+.who { color: #12294D; font-weight: 600; margin-right: .5rem; }
+.nav { gap: .25rem; }
+.nav-link { display: flex; align-items: center; gap: .6rem; padding: .65rem .8rem; border-radius: 8px;
+  color: #1E3A8A; font-weight: 600; text-decoration: none; }
+.nav-link:hover { background: #E0E7FF; }
+.nav-link[highlight] { background: #DBEAFE; }
+.proof-thumb { width: 44px; height: 44px; object-fit: cover; border-radius: 6px; border: 1px solid #D1D5DB; }
+
+/* ===== Kartu ringkasan ===== */
+.summary-grid { display: flex; flex-wrap: wrap; gap: 1rem; width: 100%; }
+.summary-card { flex: 1 1 200px; min-width: 0; padding: 1rem 1.1rem; border-radius: 12px; border-left: 6px solid; box-sizing: border-box; }
+.summary-label { display: block; font-size: .875rem; font-weight: 500; }
+.summary-value { display: block; margin-top: .35rem; font-size: 1.5rem; font-weight: 700; }
+.summary-card.blue  { background: #DBEAFE; border-color: #1D4ED8; color: #1E40AF; }
+.summary-card.green { background: #DCFCE7; border-color: #16A34A; color: #166534; }
+.summary-card.red   { background: #FEE2E2; border-color: #DC2626; color: #991B1B; }
+.summary-card.amber { background: #FEF3C7; border-color: #D97706; color: #92400E; }

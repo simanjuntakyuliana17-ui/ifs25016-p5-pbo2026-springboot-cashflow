@@ -31,7 +31,7 @@ final class PendingUpload {
         data = null;
     }
 
-    @SuppressWarnings("deprecation")
+    @SuppressWarnings("deprecation") // setAcceptedFileTypes masih berfungsi di Vaadin 25.3
     Upload component(String buttonText) {
         Upload upload = new Upload(UploadHandler.inMemory((meta, bytes) -> {
             this.name = meta.fileName();

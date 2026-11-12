@@ -44,6 +44,11 @@ public class RegisterView extends VerticalLayout implements BeforeEnterObserver 
         setAlignItems(FlexComponent.Alignment.CENTER);
         setJustifyContentMode(FlexComponent.JustifyContentMode.CENTER);
 
+        InputIds.onInput(fullName, "register-fullname");
+        InputIds.onInput(username, "register-username");
+        InputIds.onInput(password, "register-password");
+        InputIds.onInput(confirm, "register-confirm");
+        submit.setId("register-submit");
         fullName.setWidthFull();
         username.setWidthFull();
         password.setWidthFull();

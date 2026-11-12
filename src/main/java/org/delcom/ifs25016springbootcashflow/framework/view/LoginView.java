@@ -41,9 +41,9 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
         setAlignItems(FlexComponent.Alignment.CENTER);
         setJustifyContentMode(FlexComponent.JustifyContentMode.CENTER);
 
-        username.setId("login-username");
+        InputIds.onInput(username, "login-username");
         username.setWidthFull();
-        password.setId("login-password");
+        InputIds.onInput(password, "login-password");
         password.setWidthFull();
         submit.setId("login-submit");
         submit.setWidthFull();

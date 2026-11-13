@@ -40,6 +40,7 @@ public class ProfileView extends VerticalLayout implements BeforeEnterObserver {
             return;
         }
         setPadding(true);
+        getElement().setAttribute("role", "main");
         Avatar avatar = new Avatar(user.getFullName());
         avatar.setHeight("5rem");
         avatar.setWidth("5rem");

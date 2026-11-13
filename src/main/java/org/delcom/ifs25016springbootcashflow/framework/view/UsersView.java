@@ -30,6 +30,7 @@ public class UsersView extends VerticalLayout implements BeforeEnterObserver {
         this.userUseCase = userUseCase;
         this.users = users;
         setPadding(true);
+        getElement().setAttribute("role", "main");
     }
 
     @Override

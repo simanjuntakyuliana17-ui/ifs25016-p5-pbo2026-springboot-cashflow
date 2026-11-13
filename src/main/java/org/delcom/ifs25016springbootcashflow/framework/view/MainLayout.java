@@ -10,6 +10,8 @@ import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.component.menubar.MenuBarVariant;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
@@ -62,10 +64,16 @@ public class MainLayout extends AppLayout implements BeforeEnterObserver {
         spacer.addClassName("grow");
         Span who = new Span(user.getFullName() + " · " + user.getRole().label());
         who.addClassName("who");
-        addToNavbar(toggle, title, spacer, who, menu);
+        HorizontalLayout banner = new HorizontalLayout(toggle, title, spacer, who, menu);
+        banner.setWidthFull();
+        banner.setDefaultVerticalComponentAlignment(FlexComponent.Alignment.CENTER);
+        banner.getElement().setAttribute("role", "banner"); // landmark header
+        addToNavbar(banner);
 
         VerticalLayout nav = new VerticalLayout();
         nav.addClassName("nav");
+        nav.getElement().setAttribute("role", "navigation"); // landmark menu
+        nav.getElement().setAttribute("aria-label", "Menu utama");
         nav.add(link("Transaksi", VaadinIcon.WALLET, FinanceView.class),
                 link("Profil", VaadinIcon.USER, ProfileView.class));
         if (user.isAdmin()) {

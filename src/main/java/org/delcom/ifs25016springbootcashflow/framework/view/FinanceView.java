@@ -63,6 +63,7 @@ public class FinanceView extends VerticalLayout implements BeforeEnterObserver {
             return; // BeforeEnter akan mengalihkan ke /login
         }
         setPadding(true);
+        getElement().setAttribute("role", "main");
         grid.addComponentColumn(this::actions).setHeader("Tindakan").setAutoWidth(true).setFlexGrow(0);
         grid.setEmptyStateComponent(emptyState);
 

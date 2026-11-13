@@ -38,6 +38,7 @@ public class UserTransactionsView extends VerticalLayout implements BeforeEnterO
         this.presenter = presenter;
         this.users = users;
         setPadding(true);
+        getElement().setAttribute("role", "main");
     }
 
     @Override

@@ -82,6 +82,17 @@ public class FinanceUseCase {
         return repository.findByUserId(userId).stream().mapToLong(Transaction::signedAmount).sum();
     }
 
+    /** Ringkasan total dalam satu kali baca data (menggantikan 4 query terpisah di dashboard). */
+    public record Summary(int count, long income, long expense, long balance) {
+    }
+
+    public Summary summary(int userId) {
+        List<Transaction> all = repository.findByUserId(userId);
+        long income = all.stream().filter(Transaction::isIncome).mapToLong(Transaction::getAmount).sum();
+        long expense = all.stream().filter(t -> !t.isIncome()).mapToLong(Transaction::getAmount).sum();
+        return new Summary(all.size(), income, expense, income - expense);
+    }
+
     /** ADMIN meninjau transaksi pengguna lain (read-only). */
     public List<Transaction> viewAsAdmin(User actor, int targetUserId) throws ValidationException {
         UserUseCase.requireAdmin(actor);

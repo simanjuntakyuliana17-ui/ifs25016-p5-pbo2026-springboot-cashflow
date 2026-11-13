@@ -18,6 +18,8 @@
         <java.version>25</java.version>
         <vaadin.version>25.3.4</vaadin.version>
         <jacoco.version>0.8.14</jacoco.version>
+        <!-- tanpa React Router: bundle JS lebih kecil. Harus sama dengan vaadin.react.enable di application.yaml -->
+        <vaadin.react.enable>false</vaadin.react.enable>
         <!-- ubah ke true jika coverage sudah 100% dan ingin memaksa build gagal saat turun -->
         <jacoco.haltOnFailure>false</jacoco.haltOnFailure>
     </properties>

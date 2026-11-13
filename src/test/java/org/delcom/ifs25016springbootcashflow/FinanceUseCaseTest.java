@@ -31,6 +31,19 @@ class FinanceUseCaseTest {
     }
 
     @Test
+    void ringkasanDalamSatuKaliBaca() throws Exception {
+        FinanceUseCase uc = useCase();
+        uc.addIncome(1, "Gaji", "1000000", null);
+        uc.addExpense(1, "Makan", "25000", null);
+        FinanceUseCase.Summary s = uc.summary(1);
+        assertEquals(2, s.count());
+        assertEquals(1000000L, s.income());
+        assertEquals(25000L, s.expense());
+        assertEquals(975000L, s.balance());
+        assertEquals(0, uc.summary(9).count());
+    }
+
+    @Test
     void dataTerpisahPerPengguna() throws Exception {
         FinanceUseCase uc = useCase();
         uc.addIncome(1, "A", "500", null);

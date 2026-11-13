@@ -42,5 +42,7 @@ app:
 
 vaadin:
   launch-browser: false
+  react:
+    enable: false
   liveReload:
     enabled: true

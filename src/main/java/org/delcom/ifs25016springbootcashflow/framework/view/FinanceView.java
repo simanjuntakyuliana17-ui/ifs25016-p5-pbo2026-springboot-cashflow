@@ -156,10 +156,11 @@ public class FinanceView extends VerticalLayout implements BeforeEnterObserver {
 
     private void show(List<Transaction> items, String title) {
         grid.setItems(items);
-        total.setText(String.valueOf(useCase.getTransactions(user.getId()).size()));
-        income.setText(presenter.formatMoney(useCase.getTotalIncome(user.getId())));
-        expense.setText(presenter.formatMoney(useCase.getTotalExpense(user.getId())));
-        balance.setText(presenter.formatMoney(useCase.getBalance(user.getId())));
+        FinanceUseCase.Summary summary = useCase.summary(user.getId());
+        total.setText(String.valueOf(summary.count()));
+        income.setText(presenter.formatMoney(summary.income()));
+        expense.setText(presenter.formatMoney(summary.expense()));
+        balance.setText(presenter.formatMoney(summary.balance()));
         status.setText(title + " (" + items.size() + ")");
     }
 

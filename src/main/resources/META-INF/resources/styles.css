@@ -59,3 +59,6 @@ body { background: #F4F7FB; }
 .summary-card.green { background: #DCFCE7; border-color: #16A34A; color: #166534; }
 .summary-card.red   { background: #FEE2E2; border-color: #DC2626; color: #991B1B; }
 .summary-card.amber { background: #FEF3C7; border-color: #D97706; color: #92400E; }
+
+/* Tautan di dalam teks tidak boleh hanya dibedakan lewat warna (aturan aksesibilitas link-in-text-block) */
+.auth-card a, .page-card p a { text-decoration: underline; font-weight: 600; }
